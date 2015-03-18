@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Super Awesome Full-Page Site!</title>
+        <meta name='viewport' http-equiv='Content-Type' content='width=device-width, initial-scale=1'>
+        <meta name='theme-color' content='#fff'>
+        <style>
+            @charset 'utf-8';
+
+            /*  Generic styling for the primary nodes  */
+
+            html {
+                margin:0;
+                padding:0;
+                font:100 100% 'Helvetica Neue', Sans-Serif;
+                color:#fff;
+            }
+            body {
+                margin:inherit;
+            }
+            h1, h2, h3, h4, h5, h6, figure, nav.flex-container ul, nav.flex-container li {
+                font-weight:inherit;
+                margin:inherit;
+                padding:inherit;
+            }
+            h1 {
+                font-size:5vw;
+                padding:20px 0;
+            }
+            h3 {
+                font-size:2vw;
+                padding:10px 0;
+            }
+            ul {
+                list-style:none;
+            }
+
+            /*  The splash page  */
+
+            .flex-container {
+                display:flex;
+                align-items:center;
+                justify-content:center;
+                flex-direction:column;
+            }
+            .pane-fix {
+                position:absolute;
+                height:100vh;
+                width:86%;
+                right:0;
+                top:0;
+            }
+            header, #header-bg {
+                background-size:100vw 100vh;
+            }
+            #header-bg {
+                background:linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('tumbleweed.jpg');
+            }
+            header {
+                background:linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('tumbleweed.jpg');
+            }
+            header, #header-bg, .page-view {
+                height:100vh;
+                width:100vw;
+            }
+            #header-bg {
+                -webkit-filter:blur(12px);
+            }
+            header {
+                text-align:center;
+            }
+            header, .navigator {
+                text-shadow:0 0 4px rgba(0,0,0,1);
+            }
+
+            .continue {
+                margin-top:20vh;
+                cursor:pointer;
+                border-radius:50% 50%;
+                background:linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('https://y7v4p6k4.ssl.hwcdn.net/52c9a89c7c7ebea16d0001ac/53057c206d2366f5550001ca_downArrow.png');
+                height:6em;
+                width:6em;
+            }
+            header, .flex-container, .continue, .navigator, #header-bg {
+                background-position:center center;
+                background-repeat:no-repeat;
+                background-size:cover;
+            }
+            aside {
+                text-align:left;
+                position:absolute;
+                overflow:hidden;
+                top:0;
+                left:0;
+                bottom:0;
+                width:14%;
+/*                border-right:1px solid rgba(255,255,255,0.2);*/
+                box-shadow:0 0 1em rgba(0,0,0,0.8);
+            }
+            .navigator, nav.flex-container {
+                position:absolute;
+                top:inherit;
+                left:inherit;
+                bottom:inherit;
+                letter-spacing:1px;
+                line-height:3em;
+                width:100%;
+                font-size:0.9vw;
+            }
+            .nav-heading {
+                border-bottom:1px solid #ddd;
+                font-size:1.1vw;
+            }
+        </style>
+    </head>
+    <body>
+        <header class='page-view'>
+            <section class='flex-container page-view'>
+                <div class='flex-container pane-fix'>
+                    <h1 id='intro'>Welcome</h1>
+                    <h3 id='subhead'>To a new age of syntactically awesome stylesheets<br />and full-viewport web pages.</h3>
+                    <section class='continue'>
+                    </section>
+                </div>
+            </section>
+            <aside>
+                <section class='navigator'>
+                    <figure id='header-bg'></figure>
+                    <nav class='flex-container'>
+                        <ul>
+                            <p class='nav-heading'>Weapons of Choice</p>
+                            <li>Backbone</li>
+                            <li>Golang</li>
+                            <li>Handlebars</li>
+                            <li>Jade</li>
+                            <li>Marionette</li>
+                            <li>Node.js</li>
+                            <li>Python</li>
+                            <li>SASS</li>
+                            <li>&nbsp;</li>
+                            <p class='nav-heading'>Specialties</p>
+                            <li>Microdata and SEO</li>
+                            <li>Full-page</li>
+                            <li>Parallax</li>
+                            <li>Responsive Design</li>
+                        </ul>
+                    </nav>
+                </section>
+            </aside>
+        </header>
+    </body>
+</html>
+
+
+<!--HarpiesD#1682-->
