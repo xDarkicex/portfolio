@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Nvision</title>
+        <meta name='viewport' http-equiv='Content-Type' content='width=device-width, initial-scale=1'>
+        <link href='http://fonts.googleapis.com/css?family=Lato:300' rel='stylesheet' type='text/css'>
+        <link rel='icon' href='favicon-web.ico' />
+        <style>
+            /*  Native Styles  */
+            * {
+                color:#fff;
+                text-shadow:0 0 6px rgb(0,0,0);
+                margin:0;
+                padding:0;
+            }
+            html {font:300 100% 'Lato',Sans-Serif;}
+            html, body, footer {overflow:hidden;}
+            h1,h2,h3,h4,h5,h6 {font-weight:inherit;}
+            h1 {font-size:3em;}
+            main, .occupy-screen {
+                height:500px;
+                height:100vh;
+                overflow-x:hidden;
+                overflow-y:auto;
+                perspective:300px;
+                -webkit-perspective:300px;
+                perspective-origin-x:100%;
+                -webkit-perspective-origin-x:100%;
+            }
+            header, .blur-bg, footer {position:absolute;}
+            header, footer {width:100%;}
+            header {overflow:hidden;}
+            img {margin:0 15px;}
+
+            nav > ul{display:-webkit-flex;-webkit-align-items:flex-start;-webkit-flex-direction:row;-webkit-justify-content:flex-end;}
+            .list-title{margin:0 15px;}
+            li{list-style:none;display:-webkit-flex;-webkit-flex-direction:column;}
+            
+            .flex-space-between, .flex-column {
+                display:-webkit-flex;
+                -webkit-align-items:center;
+            }
+            .flex-space-between {-webkit-justify-content:space-between;}
+            .flex-column {
+                -webkit-justify-content:space-around;
+                -webkit-flex-direction:column;
+                -webkit-align-items:center;
+            }
+            .centerpiece {
+                max-width:1000px;
+                margin:0 auto;
+            }
+            .blur-bg {
+                top:-12px;
+                right:-12px;
+                left:-12px;
+                bottom:-12px;
+                filter:blur(12px);
+                -webkit-filter:blur(12px);
+                -moz-filter:blur(12px);
+                filter:url('/media/blur.svg#blur');
+            }
+            .content {
+                position:relative;
+                padding:25px;
+                background:rgb(34,34,34);
+                background:rgba(34,34,34,0.75);
+            }
+            footer, .pl {bottom:0;}
+            footer .content {padding:15px;}
+            footer .blur-bg {background-position:100% -103vh;}
+            @media screen and (max-width:1700px) {
+                main, .blur-bg {
+                    background-position:80% top;
+                    background-size:auto auto;
+                }
+            }
+            @media screen and (max-width:768px) {
+                footer .blur-bg {background-position:80% -90vh}
+                h1 {font-size:6vw;}
+                h3 {font-size:4vw;}
+                span, p, a {font-size:3vw;}
+                img {margin:0 2px;}
+            }
+
+            /*  Parallax Styles  */
+
+            .pg {
+                position:relative;
+                height:500px;
+                height:100vh;
+                transform-style:preserve-3d;
+                -webkit-transform-style:preserve-3d;
+            }
+            .pl {
+                text-shadow:0 0 1em rgba(0,0,0,1);
+                position:absolute;
+                top:0;
+                right:0;
+                left:0;
+                transform-origin-x:100%;
+                -webkit-transform-origin-x:100%;
+            }
+            .base-layer {
+                transform:translateZ(0);
+                -webkit-transform:translateZ(0);
+                z-index:4;
+            }
+            .background-layer {
+                transform:translateZ(-300px) scale(2);
+                -webkit-transform:translateZ(-300px) scale(2);
+                z-index:3;
+            }
+            .foreground-layer {
+                transform:translateZ(90px) scale(0.7);
+                -webkit-transform:translateZ(90px) scale(0.7);
+                z-index:1;
+            }
+            .deep-background-layer {
+                transform:translateZ(-600px) scale(3);
+                -webkit-transform:translateZ(-600px) scale(3);
+                z-index:3;
+            }
+            .lTitle {
+                transform:translate(-40%, -10%);
+                -webkit-transform:translate(-40%, 10%);
+                text-align:left;
+            }
+            .rTitle {
+                transform:translate(425%, 0%);
+                -webkit-transform:translate(-5%, 0%);
+                text-align:right;
+            }
+            .gTitle {
+                transform:translate(30%, 20%);
+                -webkit-transform:translate(30%, 20%);
+                text-align:center;
+            }
+            .lTitle, .rTitle, .gTitle {
+                line-height:3em;
+                position:absolute;
+                width: auto;
+                padding: 2%;
+                left:30%;
+                top:10%;
+            }
+            .pg:first-child {z-index:5;}
+            .pg:first-child .base-layer, .blur-bg {background:url('code.jpg') center center no-repeat;background-size:cover;}
+            .pg:nth-child(2) {z-index:3;}
+            .pg:nth-child(2) .background-layer, .pg:nth-child(5) .base-layer {background:#333;}
+            .pg:nth-child(3) {z-index:4;}
+            .pg:nth-child(3) .base-layer {background:#0066AA;}
+            .pg:nth-child(4) {z-index:2;}
+            .pg:nth-child(4) .deep-background-layer {background:#DDD;}
+            .pg:nth-child(5) {z-index:3;}
+            .pg:first-child .base-layer, .pg:nth-child(2) .background-layer, .pg:nth-child(3) .base-layer, .pg:nth-child(4) .deep-background-layer, .pg:nth-child(5) .base-layer {box-shadow:0 0 3em rgba(0,0,0,1);}
+        </style>
+    </head>
+    <body>
+        <main>
+            <figure class='pg'>
+                <section class='pl base-layer'>
+                    <header>
+                        <section class='blur-bg'></section>
+                        <section class='content'>
+                            <div class='flex-space-between centerpiece'>
+                                <span>Nvision</span>
+                                <span>A freelance project</span>
+                            </div>
+                        </section>
+                    </header>
+                    <section class='occupy-screen flex-column'>
+                        <div class='flex-column centerpiece'>
+                            <h1>Envision Web Design</h1>
+                            <h3>As a Community</h3>
+                        </div>
+                    </section>
+                    <footer>
+                        <section class='blur-bg'></section>
+                        <section class='content'>
+                            <div class='flex-space-between centerpiece'>
+                                <span>&copy; 2013-2015.</span>
+                                <div>
+                                    <a href='mailTo:julcol03@gmail.com' target='_blank'><img src='e-white.png' alt='' height='30' /></a>
+                                    <a href='http://github.com/juliancoleman' target='_blank'><img src='g-white.png' alt='' height='30' /></a>
+                                    <a href='http://linkedin.com/pub/julian-coleman/ab/bb9/871' target='_blank'><img src='l-white.png' alt='' height='30' /></a>
+                                    <a href='/portfolio' target='_self'><img src='favicon-1.png' height='20' /></a>
+                                </div>
+                            </div>
+                        </section>
+                    </footer>
+                </section>
+            </figure>
+            <figure class='pg'>
+                <section class='pl base-layer'>
+                    <section class='fix-scroll'></section><!--  Fix scroll does nothing except fix the z-index clickable region  -->
+                </section>
+                <section class='pl background-layer'>
+                    <section class='lTitle'>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore porro esse, iste, rem molestiae magni similique ab maiores ullam aperiam repellat. Consequuntur officia enim sapiente reiciendis ut provident impedit porro.Laborum earum ea iusto, quis. Quaerat consequatur dolor quae dicta repudiandae eum, expedita rerum, sapiente nemo quo voluptatibus consectetur tenetur nihil iure praesentium et possimus ex temporibus eos nostrum exercitationem.Magni, minus, nostrum? In alias at quis deserunt, porro mollitia repellendus aspernatur nostrum totam, minus a veniam, rem asperiores velit animi! Fugiat placeat harum nobis, voluptatem aspernatur magni similique quis!Placeat maxime tempore eligendi facilis, repellat incidunt animi. A quod reprehenderit magnam deleniti hic sint maxime maiores nihil quasi, aspernatur eos. Minima ipsa fugiat veniam aliquid eos pariatur voluptatum harum.
+                    </section>
+                </section>
+            </figure>
+            <figure class='pg'>
+                <section class='pl foreground-layer'>
+                    <section class='rTitle'>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil impedit soluta, voluptatum velit magni quidem accusantium iusto error mollitia, aperiam optio quo eum ipsam dolorem non autem ad unde tempore.Aliquid expedita aspernatur excepturi autem tenetur! Sit deleniti quia repudiandae, nam amet temporibus doloribus cumque totam eaque eum sequi illum esse vitae incidunt libero ab! Nulla odio saepe eos quod!Nostrum expedita ea ad nihil saepe voluptatibus quisquam iusto nulla, nobis quasi provident excepturi quaerat. Et earum consequuntur dolor eius iusto vero nulla repudiandae consequatur ratione labore, perspiciatis sunt molestias.Corporis voluptatem eaque, quam ullam, ipsam earum temporibus veniam aspernatur voluptatum aliquam distinctio! Voluptates incidunt ipsa tempore laudantium voluptatum architecto impedit aliquid vero dolor laborum. Sint laboriosam eos voluptatum quasi.
+                    </section>
+                </section>
+                <section class='pl base-layer'>
+                    <section class='fix-scroll'></section><!--  Fix scroll does nothing except fix the z-index clickable region  -->
+                </section>
+            </figure>
+            <figure class='pg'>
+                <section class='pl base-layer'>
+                    <section class='fix-scroll'></section><!--  Fix scroll does nothing except fix the z-index clickable region  -->
+                </section>
+                <section class='pl background-layer'>
+                    <section class='lTitle'>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis provident sequi, quas iste tenetur suscipit numquam velit asperiores necessitatibus esse delectus. Ipsum, incidunt, sit. Iste sapiente veniam, nobis ab labore?Voluptate temporibus dolorem aliquam nobis labore quasi quaerat cupiditate atque vel dolorum eius nam debitis numquam ipsum ipsa enim, ratione earum provident quam accusantium, vitae excepturi perspiciatis perferendis veritatis? Cumque.Quaerat minima deleniti esse quis ducimus excepturi eos obcaecati in magni corporis expedita totam, dicta optio hic? Quibusdam aspernatur rerum et praesentium, deleniti, atque voluptatibus quo ex omnis autem doloremque!Eius rem inventore aperiam ipsam nihil deleniti ab pariatur nesciunt veritatis natus sint, magnam ea fugit, a at debitis quam possimus eveniet dicta necessitatibus consectetur corrupti? Est aliquid deserunt asperiores.
+                    </section>
+                </section>
+                <section class='pl deep-background-layer'>
+                    <section class='fix-scroll'></section><!--  Fix scroll does nothing except fix the z-index clickable region  -->
+                </section>
+            </figure>
+            <figure class='pg'>
+                <section class='pl foreground-layer'>
+                    <section class='gTitle'>
+                        <nav>
+                            <ul>
+                                <li class='list-title'>Web Design
+                                    <ul class='list-section'>
+                                        <li>HTML</li>
+                                        <li>CSS</li>
+                                    </ul>
+                                </li>
+                                <li class='list-title'>Web Programming
+                                    <ul class='list-section'>
+                                        <li>Jade</li>
+                                        <li>SASS</li>
+                                        <li>Compass</li>
+                                        <li>JavaScript</li>
+                                        <li>Go</li>
+                                        <li>Python</li>
+                                    </ul>
+                                </li>
+                                <li class='list-title'>Computer Science
+                                    <ul class='list-section'>
+                                        <li>Assembly</li>
+                                        <li>C</li>
+                                        <li>C++</li>
+                                        <li>C#</li>
+                                        <li>Java</li>
+                                        <li>KobraScript</li>
+                                        <li>LaTeX</li>
+                                        <li>Lua</li>
+                                        <li>Objective-C</li>
+                                        <li>Swift</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </nav>
+                    </section>
+                </section>
+                <section class='pl base-layer'>
+                    <section class='fix-scroll'></section><!--  Fix scroll does nothing except fix the z-index clickable region  -->
+                </section>
+            </figure>
+        </main>
+    </body>
+</html>
