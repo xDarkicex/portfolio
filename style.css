@@ -43,7 +43,7 @@ footer .blur-bg{background-position:100% -103vh;}
 .foreground-layer{transform:translateZ(90px) scale(0.7);-webkit-transform:translateZ(90px) scale(0.7);z-index:1;}
 .deep-background-layer{transform:translateZ(-600px) scale(3);-webkit-transform:translateZ(-600px) scale(3);z-index:3;}
 .pg:first-child{z-index:5;}
-.pg:first-child .base-layer,.blur-bg{background:url('code.jpg') center center no-repeat;background-size:cover;}
+.pg:first-child .base-layer,.blur-bg{background:url('img/code.jpg') center center no-repeat;background-size:cover;}
 .pg:nth-child(2){z-index:3;}
 .pg:nth-child(2) .background-layer,.pg:nth-child(5) .base-layer{background:#333;}
 .pg:nth-child(3){z-index:4;}
