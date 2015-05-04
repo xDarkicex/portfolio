@@ -1,0 +1,70 @@
+// Global Material Design
+
+// Copyright(c) 2015-05-03 Julian Coleman
+// Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+// documentation files (the "Software"), to deal in the Software without restriction, including without limitation
+// the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software,
+// and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+// The above copyright notice and this permission notice shall be included in all copies or substantial portions
+// of the Software.
+
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
+// THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF
+// CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+// IN THE SOFTWARE.
+
+// some properties have been recreated using mixins for a more semantic property name. Using these mixins is not
+// required, but may serve to make more sense when writing the code to perform as expected
+
+
+// ##########  Generics  ##########
+@import easing
+
+// ##########  Variables ##########
+
+// Environment
+$key-light: 0 8px 1em rgba(0,0,0,0.4)
+$ambient-light: 0 0 1em rgba(0,0,0,0.175)
+$key-ambient-light: 0 6px 1.2em rgba(0,0,0,0.5)
+
+=shadow($shadow)
+    box-shadow: $shadow
+
+    // the off chance you're using an unsupported browser
+    -webkit-box-shadow: $shadow
+    -mox-box-shadow: $shadow
+
+// Physical Properties
+=elevation($z-index)
+    z-index: $z-index
+=bounds($bounds)
+    overflow: $bounds
+=transform($easing)
+    transition: all 1s $easing
+    -webkit-transition: all 1s $easing
+    -moz-transition: all 1s $easing
+
+
+// ##########  Node Styling  ##########
+*
+    +transform($easeOutQuad)
+html
+    background: rgb(238,238,238)
+
+body
+    height: 100vh
+    margin: 0
+    display: -webkit-flex
+    -webkit-justify-content: center
+    -webkit-align-items: center
+
+
+// ##########  Userland  ##########
+
+#test
+    height: 200px
+    width: 200px
+    background: #fff
+    +shadow($key-light)

@@ -1,0 +1,24 @@
+* {
+  transition: all 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  -webkit-transition: all 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  -moz-transition: all 1s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+
+html {
+  background: #eeeeee; }
+
+body {
+  height: 100vh;
+  margin: 0;
+  display: -webkit-flex;
+  -webkit-justify-content: center;
+  -webkit-align-items: center; }
+
+#test {
+  height: 200px;
+  width: 200px;
+  background: #fff;
+  box-shadow: 0 8px 1em rgba(0, 0, 0, 0.4);
+  -webkit-box-shadow: 0 8px 1em rgba(0, 0, 0, 0.4);
+  -mox-box-shadow: 0 8px 1em rgba(0, 0, 0, 0.4); }
+
+/*# sourceMappingURL=style.css.map */
