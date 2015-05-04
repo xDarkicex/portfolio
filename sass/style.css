@@ -14,20 +14,20 @@ body {
   margin: 0; }
 
 #test-container {
-  height: 45px;
-  max-width: 1000px;
-  margin: 0 auto;
   position: relative;
   display: flex;
   display: -webkit-flex;
-  justify-content: space-between;
-  -webkit-justify-content: space-between;
   align-items: center;
   -webkit-align-items: center;
   flex-direction: row;
   -webkit-flex-direction: row;
   background: rgba(0, 0, 0, 0.12); }
   #test-container * {
-    padding: 5%; }
+    padding: 1% 2%; }
+
+#test, #test2 {
+  font-size: 1.25em;
+  letter-spacing: 0.005em;
+  color: rgba(0, 0, 0, 0.87); }
 
 /*# sourceMappingURL=style.css.map */

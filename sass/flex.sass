@@ -16,9 +16,12 @@
     @else if $x == right
         justify-content: flex-end
         -webkit-justify-content: flex-end
-    @else
-        justify-content: $x
-        -webkit-justify-content: $x
+    @else if $x == around
+        justify-content: space-around
+        -webkit-justify-content: space-around
+    @else if $x == between
+        justify-content: space-between
+        -webkit-justify-content: space-between
     
     //  y-axis
     @if $y == top
