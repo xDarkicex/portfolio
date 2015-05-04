@@ -1,0 +1,18 @@
+//  This file depends on color.sass
+//  simply @import color and this file in your main sass file to avoid errors
+
+// Light and Shadow
+$key-light: 0 8px 1em color(black, 300)
+$ambient-light: 0 0 1em color(black, 100)
+$key-ambient-light: 0 6px 1.2em color(black, 300)
+
+=shadow($shadow)
+    box-shadow: $shadow
+    -webkit-box-shadow: $shadow
+    -mox-box-shadow: $shadow
+
+// Physical Properties
+=elevation($z-index)
+    z-index: $z-index
+=bounds($bounds)
+    overflow: $bounds

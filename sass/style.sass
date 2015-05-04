@@ -1,70 +1,67 @@
 // Global Material Design
 
-// Copyright(c) 2015-05-03 Julian Coleman
-// Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
-// documentation files (the "Software"), to deal in the Software without restriction, including without limitation
-// the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software,
-// and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+/*
+    #####################  Copyright (c) 2015 Julian Coleman  #####################
 
-// The above copyright notice and this permission notice shall be included in all copies or substantial portions
-// of the Software.
+    Permission is hereby granted, free of charge, to any person obtaining a copy
+    of this software and associated documentation files (the "Software"), to deal
+    in the Software without restriction, including without limitation the rights
+    to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+    copies of the Software, and to permit persons to whom the Software is
+    furnished to do so, subject to the following conditions:
 
-// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
-// THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF
-// CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
-// IN THE SOFTWARE.
+    The above copyright notice and this permission notice shall be included in
+    all copies or substantial portions of the Software.
 
-// some properties have been recreated using mixins for a more semantic property name. Using these mixins is not
-// required, but may serve to make more sense when writing the code to perform as expected
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+    AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+    THE SOFTWARE.
 
+    ###############################################################################
+
+//  This document is split into several parts, consisting of: 'Generics', 'Variables', 'Node Styling', and 'Userland'.
+//  GENERICS: The Generics are the reusable templates included herein. This consists of external SASS and the keyframe animations.
+//  VARIABLES: The Variables may represent shorthand properties, as well as mixins for bulk declarations.
+//  NODES: Node Styling is to be used on the DOM nodes themselves, excluding class names and IDs. This is especially valuable
+//  for CSS resets, and other global node changes. However, these should also follow the same principal of reusable code.
+//  USERLAND: Finally, the Userland section is for the classes and IDs that the user has created. It's not recommended changing the
+//  node styling once finished. The nodes should only provide a guideline to follow (in this case, we're following the
+//  material design standards). If you need to change styles further, it's actually less resource intensive to have
+//  classes and IDs. You probably shouldn't have a 'nav ul li ~ a: hover span'. Just give the span a class.
 
 // ##########  Generics  ##########
 @import easing
+@import flex
+@import color
+@import typography
+@import environment
 
 // ##########  Variables ##########
-
-// Environment
-$key-light: 0 8px 1em rgba(0,0,0,0.4)
-$ambient-light: 0 0 1em rgba(0,0,0,0.175)
-$key-ambient-light: 0 6px 1.2em rgba(0,0,0,0.5)
-
-=shadow($shadow)
-    box-shadow: $shadow
-
-    // the off chance you're using an unsupported browser
-    -webkit-box-shadow: $shadow
-    -mox-box-shadow: $shadow
-
-// Physical Properties
-=elevation($z-index)
-    z-index: $z-index
-=bounds($bounds)
-    overflow: $bounds
-=transform($easing)
-    transition: all 1s $easing
-    -webkit-transition: all 1s $easing
-    -moz-transition: all 1s $easing
 
 
 // ##########  Node Styling  ##########
 *
-    +transform($easeOutQuad)
+    +transform($easeInOutQuint)
+    font-family: 'Roboto', sans-serif
+
 html
-    background: rgb(238,238,238)
+    background: color(black, 50)
 
 body
-    height: 100vh
     margin: 0
-    display: -webkit-flex
-    -webkit-justify-content: center
-    -webkit-align-items: center
+
+header, main, footer
 
 
 // ##########  Userland  ##########
 
-#test
-    height: 200px
-    width: 200px
-    background: #fff
-    +shadow($key-light)
+#test-container
+    height: 45px
+    max-width: 1000px
+    margin: 0 auto
+    +flex(space-between, center, row)
+    background: color(black, 100)
