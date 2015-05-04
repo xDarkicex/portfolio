@@ -35,5 +35,16 @@
         -webkit-align-items: flex-end
 
     //  direction
-    flex-direction: $direction
-    -webkit-flex-direction: $direction
+    @if $direction == row
+        -webkit-flex-direction: row; /* Safari */
+        flex-direction: row;
+    @else if $direction == rReverse
+        -webkit-flex-direction: row-reverse; /* Safari */
+        flex-direction: row-reverse;
+    @else if $direction == column
+        -webkit-flex-direction: column; /* Safari */
+        flex-direction: column
+    @else if $direction == rColumn
+        -webkit-flex-direction: column-reverse; /* Safari */
+        flex-direction: column-reverse;
+
