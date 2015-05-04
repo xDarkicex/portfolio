@@ -16,6 +16,9 @@
     @else if $x == right
         justify-content: flex-end
         -webkit-justify-content: flex-end
+    @else if $x == space
+        -webkit-justify-content: space-between; /* Safari */
+        justify-content: space-between;
     @else
         justify-content: $x
         -webkit-justify-content: $x
